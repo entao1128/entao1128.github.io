@@ -9,6 +9,7 @@ My name is Entao Yang and I am a Ph.D. candidate at Penn Institute for Computati
 - Dynamical Decomposition Model in Polymer Nanocomposites
 - Structure-dependent Eyring Model (StEM)
 - Structuro-elasto-plasticity (StEP) model
+- Transfer-learned softness
 
 What else do you need?
 
