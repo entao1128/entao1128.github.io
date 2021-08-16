@@ -15,11 +15,12 @@ author: Entao Yang
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+  Professonal Skills:
+  #  - Beautiful Jekyll: "https://beautifuljekyll.com"
+  #  - Learn markdown: "https://www.markdowntutorial.com/"
   #Author's home: "https://deanattali.com"
-  Publication:
+  Resume:
+  Resources:
 
 # --- Logo --- #
 
@@ -48,7 +49,7 @@ social-network-links:
   #youtube: c/daattali
 #  medium: yourname
 #  reddit: yourname
-  linkedin: "https://www.linkedin.com/in/entao-yang-a29238117/"
+  linkedin: "entao-yang-a29238117/"
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -61,7 +62,7 @@ social-network-links:
 #  telegram: yourname
 #  calendly: yourname
 #  mastodon: instance.url/@username
-  ORCID: https://orcid.org/0000-0002-0420-8920
+  ORCID: 0000-0002-0420-8920
   google-scholar: https://scholar.google.com/citations?user=GjwVVRUAAAAJ&hl=en
 
 # If you want to show a link to an RSS in the footer, add the site description here.
