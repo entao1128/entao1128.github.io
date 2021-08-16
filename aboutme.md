@@ -9,7 +9,7 @@ My name is Entao Yang and I am a Ph.D. candidate at Penn Institute for Computati
 - Dynamical Decomposition Model in Polymer Nanocomposites
 - Structure-dependent Eyring Model (StEM)
 - Structuro-elasto-plasticity (StEP) model
-- Transfer-learned softness
+- Transfer-learned softness: an algorithm connects softness (a machine-learned structual field) in the heterogenous system to the well-dispersed system and enables training on small scale data sets and.
 
 What else do you need?
 
