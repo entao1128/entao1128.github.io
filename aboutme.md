@@ -4,10 +4,11 @@ title: About me
 subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+My name is Entao Yang and I am a Ph.D. candidate at Penn Institute for Computational Science (PICS), University of Pennsylvania. My research mainly focuses on using MD simulation and mahcine learning technique to probe and study hidden physics in amorphous materials. I have developed/co-developed three physical models and one machine learning algorithm during my graduate study.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+- Dynamical Decomposition Model in Polymer Nanocomposites
+- Structure-dependent Eyring Model (StEM)
+- Structuro-elasto-plasticity (StEP) model
 
 What else do you need?
 
