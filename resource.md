@@ -1,9 +1,8 @@
 ---
 layout: page
-subtitle: Publication and Selected Conference
 ---
 
-### Publication
+### Papers
 
 **Yang, E.**, & Riggleman, R. A. (2021). The Role of Local Structure in the Enhanced Dynamics of Deformed Glasses. *Submitted*
 
