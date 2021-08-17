@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Publication and Selected Conference
+subtitle: Publication and Selected Conference
 ---
 
 ### Publication
