@@ -13,4 +13,4 @@ My name is Entao Yang and I am a Ph.D. candidate at Penn Institute for Computati
 
 ### My story
 
-Before came to Penn, I did my undergraduate at Tianjin University, China, majoring in Chemical Engineering. During my undergradte, I receievd Chinese Government Scholarship for Study Abroad and went to Texas A&M University to do my thesis (dust explosion and hazards). I had another dual bachelor degree from Nankai University, majoring in Finance, and my thesis is about the effects of Two-child policy on Chinese saving rate. I have also been to Georgia Institute of Technology as an summber exchange student. 
+Before came to Penn, I did my undergraduate at Tianjin University, China, majoring in Chemical Engineering. During my undergraduate, I received Chinese Government Scholarship for Study Abroad and went to Texas A&M University to do my thesis (dust explosion and hazards). I had another dual bachelor's degree from Nankai University, majoring in Finance, and my thesis is about the effects of Two-child policy on Chinese saving rate. I have also been to the Georgia Institute of Technology as a summer exchange student.
