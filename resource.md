@@ -24,9 +24,13 @@ ethylene glycol, or monoethanolamine) + indole + 2-methylnaphthalene at 308.15 K
 ### Selected Conferences 
 
 **Yang, E.**, & Riggleman, R. (2021). Modeling the bound polymer layer in polymer nanocomposites. American Institute of Chemical Engineers Annual Meeting (Accepted)
-**Yang, E.**, Pressly, J., Natarajan, B., Winey, K., & Riggleman, R. (2021). Dynamical decomposition in model polymer nanocomposites under Creep. American Physical Society March Meeting
-Pressly, J., **Yang, E.**, Bailey, E., Denby, T., Natarajan, B., Winey, K., & Riggleman, R. (2021). Effect of polymernanoparticle interaction strength on viscoelastic creep attenuation in polymer nanocomposites. American Physical Society March Meeting
-Zhang, G., Xiao, H., Ivancic, R., **Yang, E.**, Riggleman, R., Durian, D., & Liu, A. (2021). Structuro-elasto-plasticity (StEP) model for plasticity in disordered solids. American Physical Society March Meeting
-Xiao, H., Zhang, G., Ivancic, R., **Yang, E.**, Riggleman, R., Durian, D., & Liu, A. (2021). Modeling shear band formation in amorphous solids using a structuro-elasto-plasticity (StEP) model. American Physical Society March Meeting
-**Yang, E.**, Pressly, J., Bailey, E., Natarajan, B., Mohan, A., Winey, K., & Riggleman, R. A. (2020). Suppression of creep in model polymer nanocomposites. American Physical Society March Meeting (Meeting cancelled due to Covid-19)
 
+**Yang, E.**, Pressly, J., Natarajan, B., Winey, K., & Riggleman, R. (2021). Dynamical decomposition in model polymer nanocomposites under Creep. American Physical Society March Meeting
+
+Pressly, J., **Yang, E.**, Bailey, E., Denby, T., Natarajan, B., Winey, K., & Riggleman, R. (2021). Effect of polymernanoparticle interaction strength on viscoelastic creep attenuation in polymer nanocomposites. American Physical Society March Meeting
+
+Zhang, G., Xiao, H., Ivancic, R., **Yang, E.**, Riggleman, R., Durian, D., & Liu, A. (2021). Structuro-elasto-plasticity (StEP) model for plasticity in disordered solids. American Physical Society March Meeting
+
+Xiao, H., Zhang, G., Ivancic, R., **Yang, E.**, Riggleman, R., Durian, D., & Liu, A. (2021). Modeling shear band formation in amorphous solids using a structuro-elasto-plasticity (StEP) model. American Physical Society March Meeting
+
+**Yang, E.**, Pressly, J., Bailey, E., Natarajan, B., Mohan, A., Winey, K., & Riggleman, R. A. (2020). Suppression of creep in model polymer nanocomposites. American Physical Society March Meeting (Meeting cancelled due to Covid-19)
