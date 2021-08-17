@@ -6,8 +6,10 @@ title: Resource
 ### Publication
 
 **Yang, E.**, & Riggleman, R. A. (2021). The Role of Local Structure in the Enhanced Dynamics of Deformed Glasses. *Submitted*
+
 **Yang, E.**, Pressly, J., Natarajan, B., Winey, K., & Riggleman, R. A. (2021). [The Mechanism of Creep Suppression in Polymer Nanocomposites](https://arxiv.org/abs/2108.06016). *Submitted*
-**Yang, E.**, Ivancic, R. J., Lin, E. Y., & Riggleman, R. A. (2020). [Effect of polymer-nanoparticle interaction on strain localization in polymer nanopillars]. (https://pubs.rsc.org/en/content/articlelanding/2020/sm/d0sm00991a) *Soft matter*, 16(37), 8639-8646.
+
+**Yang, E.**, Ivancic, R. J., Lin, E. Y., & Riggleman, R. A. (2020). [Effect of polymer-nanoparticle interaction on strain localization in polymer nanopillars](https://pubs.rsc.org/en/content/articlelanding/2020/sm/d0sm00991a). *Soft matter*, 16(37), 8639-8646.
 Bagaria, P., Zhang, J., **Yang, E.**, Dastidar, A., & Mashuga, C. (2016). [Effect of dust dispersion on particle integrity and explosion hazards](https://www.sciencedirect.com/science/article/pii/S0950423016303230?casa_token=mrTsVv5MEcQAAAAA:ZrtYdfVLPMx_KHXWTdjIiitRm3PqFfl7TIoX81FDP3I4u-Nx4lZOhN74Bgu3KjD72XKziaXF). *Journal of Loss Prevention in the Process Industries*, 44, 424-432.
 Tong, Y., Wang, Z., **Yang, E.**, Pan, B., Dang, L., & Wei, H. (2016). [Insights into cocrystal polymorphic transformation mechanism of ethenzamide–saccharin: a combined experimental and simulative study](https://pubs.acs.org/doi/abs/10.1021/acs.cgd.6b00688?casa_token=oBQaPEy9ZpwAAAAA:lbfgppZhliRRetdysL1_RUP6g5r-RGcpdTMg8yTG7jAaXv655Yy2_okSTajt5NQmTklgGPtK7U38-w). *Crystal Growth & Design*, 16(9), 5118-5126.
 Tong, Y., Wang, Z., **Yang, E.**, Pan, B., Jiang, J., Dang, L., & Wei, H. (2016). [Determination and correlation of solubility and solution thermodynamics of ethenzamide in different pure solvents](https://www.sciencedirect.com/science/article/pii/S0378381216303934?casa_token=8_aJp21VYcAAAAAA:9v726i5n2VsKSbWhs_FxcggvmfUTl4H2HxtFCgrKgxINHbzrvVfc713FAnGrwRUQzotAVrjn). *Fluid Phase Equilibria*, 427, 549-556.
