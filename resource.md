@@ -6,9 +6,9 @@ title: Publications
 
 ### Papers
 
-**Yang, E.**, & Riggleman, R. A. (2021). The Role of Local Structure in the Enhanced Dynamics of Deformed Glasses. *Submitted*
+**Yang, E.**, & Riggleman, R. A. (2021). [The Role of Local Structure in the Enhanced Dynamics of Deformed Glasses](https://arxiv.org/abs/2108.06016). *Submitted*
 
-**Yang, E.**, Pressly, J., Natarajan, B., Winey, K., & Riggleman, R. A. (2021). [The Mechanism of Creep Suppression in Polymer Nanocomposites](https://arxiv.org/abs/2108.06016). *Submitted*
+**Yang, E.**, Pressly, J., Natarajan, B., Winey, K., & Riggleman, R. A. (2021). The Mechanism of Creep Suppression in Polymer Nanocomposites. *Submitted*
 
 **Yang, E.**, Ivancic, R. J., Lin, E. Y., & Riggleman, R. A. (2020). [Effect of polymer-nanoparticle interaction on strain localization in polymer nanopillars](https://pubs.rsc.org/en/content/articlelanding/2020/sm/d0sm00991a). *Soft matter*, 16(37), 8639-8646.
 
