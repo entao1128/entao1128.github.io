@@ -19,7 +19,7 @@ navbar-links:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
   #  - Learn markdown: "https://www.markdowntutorial.com/"
   #Author's home: "https://deanattali.com"
-  Resume: <a href="https://github.com/entao1128/entao1128.github.io/blob/master/CV-Entao%20Yang.pdf" download="Entao_Yang_Resume">
+  Resume: a href="https://github.com/entao1128/entao1128.github.io/blob/master/CV-Entao%20Yang.pdf" download="Entao_Yang_Resume"
   Publications: "resource"
 
 # --- Logo --- #
