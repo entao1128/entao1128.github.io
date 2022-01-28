@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: Ph.D. candidate at University of Pennsylvania
+subtitle: Ph.D. Candidate at University of Pennsylvania
 ---
 
 My name is Entao Yang and I am a Ph.D. candidate at Penn Institute for Computational Science (PICS), University of Pennsylvania. My research mainly focuses on using MD simulation and machine learning techniques to probe and study hidden physics in amorphous materials. I have developed/co-developed three physical models and one machine learning algorithm during my graduate study.
