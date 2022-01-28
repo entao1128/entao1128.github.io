@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Professional Skills 
+title: Skills 
 ---
 
 - Mathematical modeling and data-driven modeling
