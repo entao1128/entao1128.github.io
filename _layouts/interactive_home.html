@@ -17,6 +17,8 @@ layout: default
         fill: #fff;
         pointer-events: none;
         text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        dominant-baseline: middle;
+        text-anchor: middle;
     }
     .svg-center-label {
         font-family: 'Segoe UI', Arial, sans-serif;
@@ -30,6 +32,15 @@ layout: default
         filter: brightness(1.15) drop-shadow(0 0 8px #0002);
         cursor: pointer;
     }
+    .svg-arrow {
+        fill: none;
+        stroke-width: 7;
+        marker-end: url(#arrowhead);
+        opacity: 0.85;
+    }
+    .svg-arrow-1 { stroke: #45B7AF; }
+    .svg-arrow-2 { stroke: #6C5CE7; }
+    .svg-arrow-3 { stroke: #FF8E53; }
     @media (max-width: 700px) {
         .svg-interactive-container svg {
             width: 320px !important;
@@ -59,20 +70,27 @@ layout: default
             <stop offset="0%" stop-color="#6C5CE7"/>
             <stop offset="100%" stop-color="#A8A4FF"/>
         </linearGradient>
+        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto" markerUnits="strokeWidth">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#888" />
+        </marker>
     </defs>
     <!-- Pie slices -->
     <a href="/ai-for-science">
         <path class="svg-slice" d="M240,240 L240,60 A180,180 0 0,1 395.64,330 Z" fill="url(#grad1)"/>
-        <text class="svg-label" x="340" y="120" transform="rotate(30 340 120)">AI for Science</text>
+        <text class="svg-label" x="300" y="110" transform="rotate(20 300 110)">AI for Science</text>
     </a>
     <a href="/scientific-computation">
         <path class="svg-slice" d="M240,240 L395.64,330 A180,180 0 0,1 84.36,330 Z" fill="url(#grad2)"/>
-        <text class="svg-label" x="240" y="420" text-anchor="middle">Scientific Computation</text>
+        <text class="svg-label" x="240" y="390">Scientific Computation</text>
     </a>
     <a href="/science-for-ai">
         <path class="svg-slice" d="M240,240 L84.36,330 A180,180 0 0,1 240,60 Z" fill="url(#grad3)"/>
-        <text class="svg-label" x="100" y="120" transform="rotate(-30 100 120)">Science for AI</text>
+        <text class="svg-label" x="180" y="110" transform="rotate(-20 180 110)">Science for AI</text>
     </a>
+    <!-- Arrows between sections -->
+    <path class="svg-arrow svg-arrow-1" d="M340,120 Q400,200 320,340" />
+    <path class="svg-arrow svg-arrow-2" d="M240,390 Q180,420 120,340" />
+    <path class="svg-arrow svg-arrow-3" d="M140,120 Q80,200 220,80" />
     <!-- Center circle -->
     <circle cx="240" cy="240" r="90" fill="#fff" stroke="#e0e0e0" stroke-width="3"/>
     <text class="svg-center-label" x="240" y="240">AI & Science</text>
