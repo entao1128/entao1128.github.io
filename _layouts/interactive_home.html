@@ -7,58 +7,187 @@ layout: default
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 80vh;
-        gap: 2rem;
-        padding: 2rem;
+        min-height: 90vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .circle-container {
+        position: relative;
+        width: 600px;
+        height: 600px;
     }
 
     .option-card {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        padding: 2rem;
-        width: 300px;
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        padding: 1.5rem;
         cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .option-card:hover {
-        transform: translateY(-10px);
+        transform: scale(1.1);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .option-card h2 {
-        color: #333;
-        margin-bottom: 1rem;
+        margin: 0;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .option-card p {
-        color: #666;
+        margin: 0;
         font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    /* Position the cards in a circle */
+    .ai-for-science {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    }
+
+    .scientific-computation {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(120deg) translateY(-200px) rotate(-120deg);
+        background: linear-gradient(135deg, #4ECDC4, #45B7AF);
+    }
+
+    .science-for-ai {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(240deg) translateY(-200px) rotate(-240deg);
+        background: linear-gradient(135deg, #6C5CE7, #A8A4FF);
+    }
+
+    /* Curved arrows */
+    .arrow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        border: 3px solid transparent;
+        border-radius: 50%;
+        transform-origin: center;
+    }
+
+    .arrow-1 {
+        transform: translate(-50%, -50%) rotate(60deg);
+        border-top-color: #FF6B6B;
+        border-right-color: #4ECDC4;
+    }
+
+    .arrow-2 {
+        transform: translate(-50%, -50%) rotate(180deg);
+        border-top-color: #4ECDC4;
+        border-right-color: #6C5CE7;
+    }
+
+    .arrow-3 {
+        transform: translate(-50%, -50%) rotate(300deg);
+        border-top-color: #6C5CE7;
+        border-right-color: #FF6B6B;
+    }
+
+    /* Arrow heads */
+    .arrow-head {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+
+    .arrow-head-1 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(60deg) translateY(-100px);
+        border-width: 10px 0 10px 15px;
+        border-color: transparent transparent transparent #4ECDC4;
+    }
+
+    .arrow-head-2 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(180deg) translateY(-100px);
+        border-width: 10px 0 10px 15px;
+        border-color: transparent transparent transparent #6C5CE7;
+    }
+
+    .arrow-head-3 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(300deg) translateY(-100px);
+        border-width: 10px 0 10px 15px;
+        border-color: transparent transparent transparent #FF6B6B;
     }
 
     @media (max-width: 768px) {
-        .interactive-container {
-            flex-direction: column;
+        .circle-container {
+            width: 400px;
+            height: 400px;
+        }
+
+        .option-card {
+            width: 150px;
+            height: 150px;
+        }
+
+        .scientific-computation {
+            transform: translate(-50%, -50%) rotate(120deg) translateY(-150px) rotate(-120deg);
+        }
+
+        .science-for-ai {
+            transform: translate(-50%, -50%) rotate(240deg) translateY(-150px) rotate(-240deg);
+        }
+
+        .arrow {
+            width: 150px;
+            height: 150px;
         }
     }
 </style>
 
 <div class="interactive-container">
-    <div class="option-card" onclick="window.location.href='/ai-for-science'">
-        <h2>AI for Science</h2>
-        <p>Exploring how artificial intelligence transforms scientific research and discovery</p>
-    </div>
-    
-    <div class="option-card" onclick="window.location.href='/science-for-ai'">
-        <h2>Science for AI</h2>
-        <p>Understanding the scientific principles behind artificial intelligence systems</p>
-    </div>
-    
-    <div class="option-card" onclick="window.location.href='/scientific-computation'">
-        <h2>Scientific Computation</h2>
-        <p>Advanced computational methods and their applications in scientific research</p>
+    <div class="circle-container">
+        <!-- Curved arrows -->
+        <div class="arrow arrow-1"></div>
+        <div class="arrow arrow-2"></div>
+        <div class="arrow arrow-3"></div>
+        
+        <!-- Arrow heads -->
+        <div class="arrow-head arrow-head-1"></div>
+        <div class="arrow-head arrow-head-2"></div>
+        <div class="arrow-head arrow-head-3"></div>
+
+        <!-- Option cards -->
+        <div class="option-card ai-for-science" onclick="window.location.href='/ai-for-science'">
+            <h2>AI for Science</h2>
+            <p>Exploring how artificial intelligence transforms scientific research</p>
+        </div>
+        
+        <div class="option-card scientific-computation" onclick="window.location.href='/scientific-computation'">
+            <h2>Scientific Computation</h2>
+            <p>Advanced computational methods in scientific research</p>
+        </div>
+        
+        <div class="option-card science-for-ai" onclick="window.location.href='/science-for-ai'">
+            <h2>Science for AI</h2>
+            <p>Scientific principles behind artificial intelligence</p>
+        </div>
     </div>
 </div> 
