@@ -3,191 +3,78 @@ layout: default
 ---
 
 <style>
-    .interactive-container {
+    .svg-interactive-container {
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 90vh;
-        position: relative;
-        overflow: hidden;
+        background: none;
     }
-
-    .circle-container {
-        position: relative;
-        width: 600px;
-        height: 600px;
+    .svg-label {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 1.1rem;
+        font-weight: bold;
+        fill: #fff;
+        pointer-events: none;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
     }
-
-    .option-card {
-        position: absolute;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 1.5rem;
+    .svg-center-label {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 1.3rem;
+        font-weight: bold;
+        fill: #7b1fa2;
+        text-anchor: middle;
+        dominant-baseline: middle;
+    }
+    .svg-slice:hover {
+        filter: brightness(1.15) drop-shadow(0 0 8px #0002);
         cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        color: white;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
-
-    .option-card:hover {
-        transform: scale(1.1);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .option-card h2 {
-        margin: 0;
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .option-card p {
-        margin: 0;
-        font-size: 0.9rem;
-        opacity: 0.9;
-    }
-
-    /* Position the cards in a circle */
-    .ai-for-science {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: linear-gradient(135deg, #FF6B6B, #FF8E53);
-    }
-
-    .scientific-computation {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(120deg) translateY(-200px) rotate(-120deg);
-        background: linear-gradient(135deg, #4ECDC4, #45B7AF);
-    }
-
-    .science-for-ai {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(240deg) translateY(-200px) rotate(-240deg);
-        background: linear-gradient(135deg, #6C5CE7, #A8A4FF);
-    }
-
-    /* Curved arrows */
-    .arrow {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 200px;
-        height: 200px;
-        border: 3px solid transparent;
-        border-radius: 50%;
-        transform-origin: center;
-    }
-
-    .arrow-1 {
-        transform: translate(-50%, -50%) rotate(60deg);
-        border-top-color: #FF6B6B;
-        border-right-color: #4ECDC4;
-    }
-
-    .arrow-2 {
-        transform: translate(-50%, -50%) rotate(180deg);
-        border-top-color: #4ECDC4;
-        border-right-color: #6C5CE7;
-    }
-
-    .arrow-3 {
-        transform: translate(-50%, -50%) rotate(300deg);
-        border-top-color: #6C5CE7;
-        border-right-color: #FF6B6B;
-    }
-
-    /* Arrow heads */
-    .arrow-head {
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-style: solid;
-    }
-
-    .arrow-head-1 {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(60deg) translateY(-100px);
-        border-width: 10px 0 10px 15px;
-        border-color: transparent transparent transparent #4ECDC4;
-    }
-
-    .arrow-head-2 {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(180deg) translateY(-100px);
-        border-width: 10px 0 10px 15px;
-        border-color: transparent transparent transparent #6C5CE7;
-    }
-
-    .arrow-head-3 {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(300deg) translateY(-100px);
-        border-width: 10px 0 10px 15px;
-        border-color: transparent transparent transparent #FF6B6B;
-    }
-
-    @media (max-width: 768px) {
-        .circle-container {
-            width: 400px;
-            height: 400px;
+    @media (max-width: 700px) {
+        .svg-interactive-container svg {
+            width: 320px !important;
+            height: 320px !important;
         }
-
-        .option-card {
-            width: 150px;
-            height: 150px;
+        .svg-label {
+            font-size: 0.9rem;
         }
-
-        .scientific-computation {
-            transform: translate(-50%, -50%) rotate(120deg) translateY(-150px) rotate(-120deg);
-        }
-
-        .science-for-ai {
-            transform: translate(-50%, -50%) rotate(240deg) translateY(-150px) rotate(-240deg);
-        }
-
-        .arrow {
-            width: 150px;
-            height: 150px;
+        .svg-center-label {
+            font-size: 1rem;
         }
     }
 </style>
 
-<div class="interactive-container">
-    <div class="circle-container">
-        <!-- Curved arrows -->
-        <div class="arrow arrow-1"></div>
-        <div class="arrow arrow-2"></div>
-        <div class="arrow arrow-3"></div>
-        
-        <!-- Arrow heads -->
-        <div class="arrow-head arrow-head-1"></div>
-        <div class="arrow-head arrow-head-2"></div>
-        <div class="arrow-head arrow-head-3"></div>
-
-        <!-- Option cards -->
-        <div class="option-card ai-for-science" onclick="window.location.href='/ai-for-science'">
-            <h2>AI for Science</h2>
-            <p>Exploring how artificial intelligence transforms scientific research</p>
-        </div>
-        
-        <div class="option-card scientific-computation" onclick="window.location.href='/scientific-computation'">
-            <h2>Scientific Computation</h2>
-            <p>Advanced computational methods in scientific research</p>
-        </div>
-        
-        <div class="option-card science-for-ai" onclick="window.location.href='/science-for-ai'">
-            <h2>Science for AI</h2>
-            <p>Scientific principles behind artificial intelligence</p>
-        </div>
-    </div>
+<div class="svg-interactive-container">
+<svg width="480" height="480" viewBox="0 0 480 480">
+    <defs>
+        <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FF6B6B"/>
+            <stop offset="100%" stop-color="#FF8E53"/>
+        </linearGradient>
+        <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4ECDC4"/>
+            <stop offset="100%" stop-color="#45B7AF"/>
+        </linearGradient>
+        <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#6C5CE7"/>
+            <stop offset="100%" stop-color="#A8A4FF"/>
+        </linearGradient>
+    </defs>
+    <!-- Pie slices -->
+    <a href="/ai-for-science">
+        <path class="svg-slice" d="M240,240 L240,60 A180,180 0 0,1 395.64,330 Z" fill="url(#grad1)"/>
+        <text class="svg-label" x="340" y="120" transform="rotate(30 340 120)">AI for Science</text>
+    </a>
+    <a href="/scientific-computation">
+        <path class="svg-slice" d="M240,240 L395.64,330 A180,180 0 0,1 84.36,330 Z" fill="url(#grad2)"/>
+        <text class="svg-label" x="240" y="420" text-anchor="middle">Scientific Computation</text>
+    </a>
+    <a href="/science-for-ai">
+        <path class="svg-slice" d="M240,240 L84.36,330 A180,180 0 0,1 240,60 Z" fill="url(#grad3)"/>
+        <text class="svg-label" x="100" y="120" transform="rotate(-30 100 120)">Science for AI</text>
+    </a>
+    <!-- Center circle -->
+    <circle cx="240" cy="240" r="90" fill="#fff" stroke="#e0e0e0" stroke-width="3"/>
+    <text class="svg-center-label" x="240" y="240">AI & Science</text>
+</svg>
 </div> 
