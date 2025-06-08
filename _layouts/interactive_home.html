@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<style>
+    .interactive-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .option-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 2rem;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .option-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .option-card h2 {
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .option-card p {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+        .interactive-container {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<div class="interactive-container">
+    <div class="option-card" onclick="window.location.href='/ai-for-science'">
+        <h2>AI for Science</h2>
+        <p>Exploring how artificial intelligence transforms scientific research and discovery</p>
+    </div>
+    
+    <div class="option-card" onclick="window.location.href='/science-for-ai'">
+        <h2>Science for AI</h2>
+        <p>Understanding the scientific principles behind artificial intelligence systems</p>
+    </div>
+    
+    <div class="option-card" onclick="window.location.href='/scientific-computation'">
+        <h2>Scientific Computation</h2>
+        <p>Advanced computational methods and their applications in scientific research</p>
+    </div>
+</div> 
