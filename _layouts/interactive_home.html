@@ -3,191 +3,116 @@ layout: default
 ---
 
 <style>
-    .interactive-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 90vh;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .circle-container {
-        position: relative;
-        width: 600px;
-        height: 600px;
-    }
-
-    .option-card {
-        position: absolute;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
+    .clou-cover-container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        text-align: center;
-        padding: 1.5rem;
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        color: white;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        justify-content: center;
+        min-height: 90vh;
+        background: #f7f7f7;
+        padding: 2rem 0;
     }
-
-    .option-card:hover {
-        transform: scale(1.1);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    .clou-section {
+        width: 90%;
+        max-width: 1100px;
+        margin-bottom: 3rem;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        transition: box-shadow 0.3s;
     }
-
-    .option-card h2 {
-        margin: 0;
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+    .clou-section:hover {
+        box-shadow: 0 8px 32px 0 rgba(0,0,0,0.13);
     }
-
-    .option-card p {
-        margin: 0;
-        font-size: 0.9rem;
-        opacity: 0.9;
+    .clou-section-title {
+        font-size: 2.1rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        color: #222;
+        text-decoration: none;
+        display: inline-block;
+        transition: color 0.2s;
     }
-
-    /* Position the cards in a circle */
-    .ai-for-science {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    .clou-section-title:hover {
+        color: #6C5CE7;
+        text-decoration: underline;
     }
-
-    .scientific-computation {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(120deg) translateY(-200px) rotate(-120deg);
-        background: linear-gradient(135deg, #4ECDC4, #45B7AF);
+    .clou-image-row {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
     }
-
-    .science-for-ai {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(240deg) translateY(-200px) rotate(-240deg);
-        background: linear-gradient(135deg, #6C5CE7, #A8A4FF);
+    .clou-image-link {
+        display: block;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+        transition: transform 0.2s, box-shadow 0.2s;
+        width: 220px;
+        height: 150px;
+        background: #eee;
     }
-
-    /* Curved arrows */
-    .arrow {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 200px;
-        height: 200px;
-        border: 3px solid transparent;
-        border-radius: 50%;
-        transform-origin: center;
+    .clou-image-link:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 24px 0 rgba(108,92,231,0.18);
     }
-
-    .arrow-1 {
-        transform: translate(-50%, -50%) rotate(60deg);
-        border-top-color: #FF6B6B;
-        border-right-color: #4ECDC4;
+    .clou-image-link img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
-
-    .arrow-2 {
-        transform: translate(-50%, -50%) rotate(180deg);
-        border-top-color: #4ECDC4;
-        border-right-color: #6C5CE7;
-    }
-
-    .arrow-3 {
-        transform: translate(-50%, -50%) rotate(300deg);
-        border-top-color: #6C5CE7;
-        border-right-color: #FF6B6B;
-    }
-
-    /* Arrow heads */
-    .arrow-head {
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-style: solid;
-    }
-
-    .arrow-head-1 {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(60deg) translateY(-100px);
-        border-width: 10px 0 10px 15px;
-        border-color: transparent transparent transparent #4ECDC4;
-    }
-
-    .arrow-head-2 {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(180deg) translateY(-100px);
-        border-width: 10px 0 10px 15px;
-        border-color: transparent transparent transparent #6C5CE7;
-    }
-
-    .arrow-head-3 {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(300deg) translateY(-100px);
-        border-width: 10px 0 10px 15px;
-        border-color: transparent transparent transparent #FF6B6B;
-    }
-
-    @media (max-width: 768px) {
-        .circle-container {
-            width: 400px;
-            height: 400px;
+    @media (max-width: 900px) {
+        .clou-image-row {
+            gap: 1rem;
         }
-
-        .option-card {
-            width: 150px;
-            height: 150px;
+        .clou-image-link {
+            width: 160px;
+            height: 110px;
         }
-
-        .scientific-computation {
-            transform: translate(-50%, -50%) rotate(120deg) translateY(-150px) rotate(-120deg);
+    }
+    @media (max-width: 600px) {
+        .clou-section {
+            padding: 1rem 0.5rem 1rem 0.5rem;
         }
-
-        .science-for-ai {
-            transform: translate(-50%, -50%) rotate(240deg) translateY(-150px) rotate(-240deg);
+        .clou-section-title {
+            font-size: 1.3rem;
         }
-
-        .arrow {
-            width: 150px;
-            height: 150px;
+        .clou-image-link {
+            width: 100px;
+            height: 70px;
         }
     }
 </style>
 
-<div class="interactive-container">
-    <div class="circle-container">
-        <!-- Curved arrows -->
-        <div class="arrow arrow-1"></div>
-        <div class="arrow arrow-2"></div>
-        <div class="arrow arrow-3"></div>
-        
-        <!-- Arrow heads -->
-        <div class="arrow-head arrow-head-1"></div>
-        <div class="arrow-head arrow-head-2"></div>
-        <div class="arrow-head arrow-head-3"></div>
-
-        <!-- Option cards -->
-        <div class="option-card ai-for-science" onclick="window.location.href='/ai-for-science'">
-            <h2>AI for Science</h2>
-            <p>Exploring how artificial intelligence transforms scientific research</p>
+<div class="clou-cover-container">
+    <!-- Section 1: AI for Science -->
+    <div class="clou-section">
+        <a class="clou-section-title" href="/ai-for-science">AI for Science</a>
+        <div class="clou-image-row">
+            <a class="clou-image-link" href="/ai-for-science"><img src="/assets/img/bulk_T0.42_soft_d2min.png" alt="AI for Science 1"></a>
+            <a class="clou-image-link" href="/ai-for-science"><img src="/assets/img/bulk_T0.42_soft_d2min.png" alt="AI for Science 2"></a>
+            <a class="clou-image-link" href="/ai-for-science"><img src="/assets/img/bulk_T0.42_soft_d2min.png" alt="AI for Science 3"></a>
         </div>
-        
-        <div class="option-card scientific-computation" onclick="window.location.href='/scientific-computation'">
-            <h2>Scientific Computation</h2>
-            <p>Advanced computational methods in scientific research</p>
+    </div>
+    <!-- Section 2: Scientific Computation -->
+    <div class="clou-section">
+        <a class="clou-section-title" href="/scientific-computation">Scientific Computation</a>
+        <div class="clou-image-row">
+            <a class="clou-image-link" href="/scientific-computation"><img src="/assets/img/bulk_T0.42_soft_d2min.png" alt="Scientific Computation 1"></a>
+            <a class="clou-image-link" href="/scientific-computation"><img src="/assets/img/bulk_T0.42_soft_d2min.png" alt="Scientific Computation 2"></a>
+            <a class="clou-image-link" href="/scientific-computation"><img src="/assets/img/bulk_T0.42_soft_d2min.png" alt="Scientific Computation 3"></a>
         </div>
-        
-        <div class="option-card science-for-ai" onclick="window.location.href='/science-for-ai'">
-            <h2>Science for AI</h2>
-            <p>Scientific principles behind artificial intelligence</p>
+    </div>
+    <!-- Section 3: Science for AI -->
+    <div class="clou-section">
+        <a class="clou-section-title" href="/science-for-ai">Science for AI</a>
+        <div class="clou-image-row">
+            <a class="clou-image-link" href="/science-for-ai"><img src="/assets/img/bulk_T0.42_soft_d2min.png" alt="Science for AI 1"></a>
+            <a class="clou-image-link" href="/science-for-ai"><img src="/assets/img/bulk_T0.42_soft_d2min.png" alt="Science for AI 2"></a>
+            <a class="clou-image-link" href="/science-for-ai"><img src="/assets/img/bulk_T0.42_soft_d2min.png" alt="Science for AI 3"></a>
         </div>
     </div>
 </div> 
