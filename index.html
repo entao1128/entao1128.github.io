@@ -1,5 +1,444 @@
----
-layout: interactive_home
-title: Entao Yang
-subtitle: Exploring the Intersection of AI and Science
----
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Profile</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons for scientific icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Custom colors for the 3 research areas
+                        'area-1': '#10B981', // Emerald (AI for Science)
+                        'area-2': '#6366F1', // Indigo (Science for AI)
+                        'area-3': '#F43F5E', // Rose (Comp Materials)
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom animations for the wheel */
+        .wheel-segment {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+            cursor: pointer;
+        }
+        .wheel-segment:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- HERO / COVER SECTION -->
+    <header class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-white">
+        
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-30 pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-area-1/20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 -right-24 w-80 h-80 bg-area-2/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 left-1/3 w-96 h-96 bg-area-3/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="z-10 text-center mb-8 px-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">Your Name</h1>
+            <p class="text-xl md:text-2xl text-slate-500 font-light max-w-2xl mx-auto">
+                Exploring the intersection of Artificial Intelligence, Physics, and Materials Science.
+            </p>
+        </div>
+
+        <!-- THE INTERACTIVE WHEEL -->
+        <div class="relative w-[340px] h-[340px] md:w-[500px] md:h-[500px] z-10 transition-transform duration-700 ease-out transform" id="main-wheel">
+            
+            <!-- Center Circle (Title) -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-48 md:h-48 bg-white rounded-full shadow-xl z-20 flex flex-col items-center justify-center text-center p-4 border-4 border-slate-50 pointer-events-none">
+                <span class="text-slate-400 text-xs md:text-sm font-semibold uppercase tracking-wider mb-1">Core Focus</span>
+                <span class="text-slate-800 font-bold text-lg md:text-2xl leading-tight">Research<br>Directions</span>
+            </div>
+
+            <!-- SVG Diagram -->
+            <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-2xl">
+                <!-- Defs for gradients or filters can go here -->
+                
+                <!-- Segment 1: AI for Science (Top Leftish) -->
+                <!-- Range: 150 degrees to 270 degrees (Top Left) -> Let's adjust to be thirds -->
+                <!-- 0 is 3 o'clock. 
+                     Segment 1: 210° to 330° (Top)
+                     Segment 2: 330° to 90° (Right)
+                     Segment 3: 90° to 210° (Left)
+                -->
+
+                <!-- Group 1: AI for Science (Emerald) -->
+                <g class="wheel-segment group" onclick="scrollToSection('ai-science')">
+                    <!-- Donut Slice Path calculated manually for stability -->
+                    <path d="M 50 50 L 93.3 25 A 50 50 0 0 0 6.7 25 L 50 50" fill="#10B981" class="transition-colors group-hover:fill-emerald-400 stroke-white stroke-[0.5]" transform="rotate(-90 50 50)"/> <!-- Rotated to be Top -->
+                    <!-- Icon & Text Positioned roughly in center of slice -->
+                    <g transform="translate(50, 20)">
+                        <foreignObject x="-15" y="-10" width="30" height="30">
+                            <div class="flex flex-col items-center justify-center h-full text-white">
+                                <i class="ph ph-brain text-2xl md:text-4xl mb-1 drop-shadow-md"></i>
+                            </div>
+                        </foreignObject>
+                        <text x="0" y="25" text-anchor="middle" class="fill-white text-[4px] md:text-[5px] font-bold uppercase tracking-wider drop-shadow-md">AI for Science</text>
+                    </g>
+                </g>
+
+                <!-- Group 2: Science for AI (Indigo) -->
+                <g class="wheel-segment group" onclick="scrollToSection('science-ai')">
+                    <path d="M 50 50 L 93.3 75 A 50 50 0 0 0 93.3 25 L 50 50" fill="#6366F1" class="transition-colors group-hover:fill-indigo-400 stroke-white stroke-[0.5]" transform="rotate(0 50 50)"/> <!-- Right Side -->
+                     <g transform="translate(78, 65)">
+                        <foreignObject x="-15" y="-10" width="30" height="30">
+                            <div class="flex flex-col items-center justify-center h-full text-white">
+                                <i class="ph ph-circuitry text-2xl md:text-4xl mb-1 drop-shadow-md"></i>
+                            </div>
+                        </foreignObject>
+                        <text x="0" y="25" text-anchor="middle" class="fill-white text-[4px] md:text-[5px] font-bold uppercase tracking-wider drop-shadow-md">Science for AI</text>
+                    </g>
+                </g>
+
+                <!-- Group 3: Comp Materials (Rose) -->
+                <g class="wheel-segment group" onclick="scrollToSection('comp-materials')">
+                    <path d="M 50 50 L 6.7 25 A 50 50 0 0 0 6.7 75 L 50 50" fill="#F43F5E" class="transition-colors group-hover:fill-rose-400 stroke-white stroke-[0.5]" transform="rotate(0 50 50)"/> <!-- Left Bottomish -->
+                    <!-- We need to manually rotate this one to fit the bottom left 120 wedge properly. 
+                         Actually, let's just use exact coordinate paths for a perfect 120-120-120 split.
+                    -->
+                    <!-- Re-drawing logic below for perfect symmetry using JS injected paths for cleaner code, 
+                         but for now, let's override these paths with the specific logic in the script at the bottom 
+                         to ensure they are perfect donuts.
+                    -->
+                </g>
+            </svg>
+            
+            <!-- Redrawing SVG content strictly with JS for precision geometry -->
+            <div id="svg-container" class="absolute inset-0 pointer-events-none"></div>
+        </div>
+        
+        <div class="absolute bottom-8 animate-bounce text-slate-400">
+            <i class="ph ph-arrow-down text-3xl"></i>
+        </div>
+    </header>
+
+    <!-- CONTENT SECTIONS -->
+
+    <!-- Section 1: AI for Science -->
+    <section id="ai-science" class="min-h-screen flex items-center py-20 px-6 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="p-3 bg-area-1/10 rounded-xl text-area-1">
+                        <i class="ph ph-brain text-4xl"></i>
+                    </div>
+                    <h2 class="text-4xl font-bold text-slate-800">AI for Science</h2>
+                </div>
+                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                    Here we leverage advanced machine learning architectures to solve fundamental problems in natural sciences. 
+                    This includes using Graph Neural Networks for molecule property prediction and Transformers for protein folding.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i class="ph ph-check-circle text-area-1 text-xl mt-1"></i>
+                        <span class="text-slate-700">Deep Learning for Particle Physics</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="ph ph-check-circle text-area-1 text-xl mt-1"></i>
+                        <span class="text-slate-700">Generative Models in Chemistry</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="ph ph-check-circle text-area-1 text-xl mt-1"></i>
+                        <span class="text-slate-700">Accelerating Simulations with Neural Surrogates</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="order-1 md:order-2 bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                <!-- Placeholder for project image/viz -->
+                <div class="aspect-video bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ph ph-chart-line-up text-emerald-300 text-6xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Featured Project: Neural Force Fields</h3>
+                <p class="text-slate-500 text-sm">Developing potentials that rival DFT accuracy at a fraction of the computational cost.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Science for AI -->
+    <section id="science-ai" class="min-h-screen flex items-center py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="bg-slate-50 p-8 rounded-2xl shadow-lg border border-slate-100">
+                <div class="aspect-video bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ph ph-network text-indigo-300 text-6xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Featured Project: Physics-Informed NN</h3>
+                <p class="text-slate-500 text-sm">Embedding physical conservation laws directly into neural network loss functions.</p>
+            </div>
+            <div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="p-3 bg-area-2/10 rounded-xl text-area-2">
+                        <i class="ph ph-circuitry text-4xl"></i>
+                    </div>
+                    <h2 class="text-4xl font-bold text-slate-800">Science for AI</h2>
+                </div>
+                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                    Applying principles from statistical physics and thermodynamics to understand and improve artificial intelligence. 
+                    We explore the theoretical limits of learning and the dynamics of optimization landscapes.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i class="ph ph-check-circle text-area-2 text-xl mt-1"></i>
+                        <span class="text-slate-700">Thermodynamics of Learning</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="ph ph-check-circle text-area-2 text-xl mt-1"></i>
+                        <span class="text-slate-700">Interpretability via Physical Analogies</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="ph ph-check-circle text-area-2 text-xl mt-1"></i>
+                        <span class="text-slate-700">Bio-inspired Computing Architectures</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Computational Materials -->
+    <section id="comp-materials" class="min-h-screen flex items-center py-20 px-6 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="p-3 bg-area-3/10 rounded-xl text-area-3">
+                        <i class="ph ph-atom text-4xl"></i>
+                    </div>
+                    <h2 class="text-4xl font-bold text-slate-800">Computational Materials</h2>
+                </div>
+                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                    Discovering novel materials through high-throughput computing and ab initio simulations. 
+                    Focus areas include battery electrolytes, semiconductors, and topological insulators.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i class="ph ph-check-circle text-area-3 text-xl mt-1"></i>
+                        <span class="text-slate-700">High-Throughput Screening</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="ph ph-check-circle text-area-3 text-xl mt-1"></i>
+                        <span class="text-slate-700">DFT & Molecular Dynamics</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="ph ph-check-circle text-area-3 text-xl mt-1"></i>
+                        <span class="text-slate-700">Structure-Property Relationships</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="order-1 md:order-2 bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                <div class="aspect-video bg-gradient-to-br from-rose-50 to-rose-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ph ph-cube text-rose-300 text-6xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Featured Project: Next-Gen Batteries</h3>
+                <p class="text-slate-500 text-sm">Identifying solid-state electrolytes with high ionic conductivity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold mb-4">Let's Connect</h2>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="hover:text-area-1 transition-colors"><i class="ph ph-github-logo text-3xl"></i></a>
+                <a href="#" class="hover:text-area-2 transition-colors"><i class="ph ph-linkedin-logo text-3xl"></i></a>
+                <a href="#" class="hover:text-area-3 transition-colors"><i class="ph ph-envelope text-3xl"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm">&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script to Generate Perfect Geometry and Handle Interaction -->
+    <script>
+        function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+            var angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+            return {
+                x: centerX + (radius * Math.cos(angleInRadians)),
+                y: centerY + (radius * Math.sin(angleInRadians))
+            };
+        }
+
+        function describeArc(x, y, radius, startAngle, endAngle) {
+            var start = polarToCartesian(x, y, radius, endAngle);
+            var end = polarToCartesian(x, y, radius, startAngle);
+            var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+            var d = [
+                "M", start.x, start.y,
+                "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
+            ].join(" ");
+            return d;
+        }
+
+        // Generate the 3 segments
+        // Segment 1: AI for Science (Green) - Top - Range: 330 to 90 (120 deg) -> Wait, let's do standard thirds
+        // 1: 0 to 120 (Top Right to Bottom Right) 
+        // 2: 120 to 240 (Bottom Right to Bottom Left)
+        // 3: 240 to 360 (Bottom Left to Top Right)
+        // Let's rotate -30 deg so Top is split? No, usually Top is one piece.
+        // Piece 1: -60 to 60 (Right)
+        // Piece 2: 60 to 180 (Bottom)
+        // Piece 3: 180 to 300 (Top Left... no)
+        
+        // Let's do:
+        // Top: 210 to 330 (Centered at 270/-90)
+        // Right: 330 to 450 (90) (Centered at 30)
+        // Left: 90 to 210 (Centered at 150)
+        
+        const segments = [
+            {
+                id: 'ai-science',
+                color: '#10B981', // Emerald
+                hoverColor: '#34D399',
+                start: 210,
+                end: 330,
+                icon: 'ph-brain',
+                label: 'AI for Science',
+                cx: 0, cy: -25 // Offset for icon
+            },
+            {
+                id: 'science-ai',
+                color: '#6366F1', // Indigo
+                hoverColor: '#818CF8',
+                start: 330,
+                end: 450, // wraps to 90
+                icon: 'ph-circuitry',
+                label: 'Science for AI',
+                cx: 22, cy: 12 // Offset for icon
+            },
+            {
+                id: 'comp-materials',
+                color: '#F43F5E', // Rose
+                hoverColor: '#FB7185',
+                start: 90,
+                end: 210,
+                icon: 'ph-atom',
+                label: 'Comp. Materials',
+                cx: -22, cy: 12 // Offset for icon
+            }
+        ];
+
+        // Replace the HTML static SVG with this generated one
+        const svgContainer = document.querySelector('svg');
+        svgContainer.innerHTML = ''; // Clear static fallback
+
+        // Add Defs for shadows
+        const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+        defs.innerHTML = `<filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="1"/><feOffset dx="0" dy="1" result="offsetblur"/><feFlood flood-color="rgba(0,0,0,0.2)"/><feComposite in2="offsetblur" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
+        svgContainer.appendChild(defs);
+
+        segments.forEach(seg => {
+            const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            group.setAttribute("class", "wheel-segment group cursor-pointer");
+            group.onclick = () => scrollToSection(seg.id);
+
+            // Create Path
+            // Donut shape: Outer arc -> line to inner -> inner arc -> line to start
+            const radiusOuter = 48;
+            const radiusInner = 25;
+            const center = 50;
+            
+            // Outer Arc
+            const startOuter = polarToCartesian(center, center, radiusOuter, seg.end);
+            const endOuter = polarToCartesian(center, center, radiusOuter, seg.start);
+            
+            // Inner Arc
+            const startInner = polarToCartesian(center, center, radiusInner, seg.end);
+            const endInner = polarToCartesian(center, center, radiusInner, seg.start);
+
+            // Gap adjustment (simple version: standard arcs, gap created by stroke)
+            // Complex version: math offsets. We will rely on stroke for gaps.
+            
+            const d = [
+                "M", startOuter.x, startOuter.y,
+                "A", radiusOuter, radiusOuter, 0, 0, 0, endOuter.x, endOuter.y,
+                "L", endInner.x, endInner.y,
+                "A", radiusInner, radiusInner, 0, 0, 1, startInner.x, startInner.y,
+                "Z"
+            ].join(" ");
+
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute("d", d);
+            path.setAttribute("fill", seg.color);
+            path.setAttribute("stroke", "white");
+            path.setAttribute("stroke-width", "1.5");
+            // Add hover effect via class logic in CSS or inline
+            
+            // Icon & Text positioning
+            // Calculate center of the wedge angle
+            const midAngle = (seg.start + seg.end) / 2;
+            const textPos = polarToCartesian(center, center, 36.5, midAngle); // Middle of band
+
+            const foreignObj = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+            foreignObj.setAttribute("x", textPos.x - 15);
+            foreignObj.setAttribute("y", textPos.y - 12);
+            foreignObj.setAttribute("width", "30");
+            foreignObj.setAttribute("height", "30");
+            foreignObj.style.pointerEvents = "none";
+            
+            foreignObj.innerHTML = `
+                <div class="flex flex-col items-center justify-center h-full text-white drop-shadow-md">
+                    <i class="ph ${seg.icon} text-3xl"></i>
+                    <span class="text-[4px] font-bold uppercase tracking-wider mt-1 text-center leading-tight w-20">${seg.label}</span>
+                </div>
+            `;
+
+            group.appendChild(path);
+            group.appendChild(foreignObj);
+            svgContainer.appendChild(group);
+        });
+
+        // Add Center Hole (Background) - optional if we want the wheel to look solid around the HTML center div
+        // but the HTML center div handles it.
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                const headerOffset = 50;
+                const elementPosition = el.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }
+    </script>
+</body>
+</html>
+
+//---
+//layout: interactive_home
+//title: Entao Yang
+//subtitle: Exploring the Intersection of AI and Science
+//---
