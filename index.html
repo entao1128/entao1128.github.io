@@ -67,9 +67,34 @@
             <div class="absolute top-1/2 -right-24 w-80 h-80 bg-area-2/20 rounded-full blur-3xl"></div>
             <div class="absolute -bottom-24 left-1/3 w-96 h-96 bg-area-3/20 rounded-full blur-3xl"></div>
         </div>
+        
+        <div class="absolute right-[7cm] top-3/4 -translate-y-1/2 hidden md:block z-10">
+            <div class="rounded-xl p-8 w-110">
+                <div class="space-y-3 text-2xl text-slate-700">
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-area-1 text-white">
+                            <i class="ph ph-brain text-xl"></i>
+                        </span>
+                        <span>AI for Science</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-area-2 text-white">
+                            <i class="ph ph-circuitry text-xl"></i>
+                        </span>
+                        <span>Science for AI</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-area-3 text-white">
+                            <i class="ph ph-atom text-xl"></i>
+                        </span>
+                        <span>Computational Materials</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="z-10 text-center mb-8 px-4">
-            <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">Entao Yang</h1>
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">Entao Yang, Ph.D.</h1>
             <p class="text-xl md:text-2xl text-slate-500 font-light max-w-2xl mx-auto">
                 Exploring the Intersection of AI and Science.
             </p>
@@ -141,15 +166,20 @@
             <div id="svg-container" class="absolute inset-0 pointer-events-none"></div>
         </div>
         
-        <div class="absolute bottom-8 animate-bounce text-slate-400">
+        <button
+            type="button"
+            class="absolute bottom-8 animate-bounce text-slate-400 hover:text-slate-500 transition-colors"
+            onclick="scrollToSection('ai-science')"
+            aria-label="Scroll to AI for Science section"
+        >
             <i class="ph ph-arrow-down text-3xl"></i>
-        </div>
+        </button>
     </header>
 
     <!-- CONTENT SECTIONS -->
 
     <!-- Section 1: AI for Science -->
-    <section id="ai-science" class="min-h-screen flex items-center py-20 px-6 bg-slate-50 border-t border-slate-200">
+    <section id="ai-science" class="min-h-screen flex items-center py-20 px-6 bg-slate-50 border-t border-slate-200 relative">
         <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1">
                 <div class="flex items-center gap-4 mb-6">
@@ -159,44 +189,55 @@
                     <h2 class="text-4xl font-bold text-slate-800">AI for Science</h2>
                 </div>
                 <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                    Here we leverage advanced machine learning architectures to solve fundamental problems in natural sciences. 
-                    This includes using Graph Neural Networks for molecule property prediction and Transformers for protein folding.
+                    I currently lead the AI for Materials research team at <a href="https://www.airliquide.com/" class="text-area-1 underline hover:opacity-80">Air Liquide</a>, where we leverage advanced AI models to design new materials from small molecules to polymers. <br>
+                    My prior research at <a href="https://www.upenn.edu/" class="text-area-1 underline hover:opacity-80">UPenn</a> focused on using machine learning to probe hidden physics in complex systems, such as revealing the physical meaning of activation volume in the <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.097801" class="text-area-1 underline hover:opacity-80">Eyring Model</a> proposed in 1936. 
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-start gap-3">
                         <i class="ph ph-check-circle text-area-1 text-xl mt-1"></i>
-                        <span class="text-slate-700">Deep Learning for Particle Physics</span>
+                        <span class="text-slate-700"><a href="https://openreview.net/pdf?id=MaS7e2EVFm" class="text-area-1 underline hover:opacity-80">Language Model for Material Discovery</a> </span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="ph ph-check-circle text-area-1 text-xl mt-1"></i>
-                        <span class="text-slate-700">Generative Models in Chemistry</span>
+                        <span class="text-slate-700"><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.097801" class="text-area-1 underline hover:opacity-80">Structure-dependent Eyring Model</a></span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="ph ph-check-circle text-area-1 text-xl mt-1"></i>
-                        <span class="text-slate-700">Accelerating Simulations with Neural Surrogates</span>
+                        <span class="text-slate-700"><a href="https://pubs.rsc.org/en/content/articlelanding/2023/sm/d3sm00898c/unauth" class="text-area-1 underline hover:opacity-80">Understanding Creep Suppression Mechanism with AI</a></span>
                     </li>
                 </ul>
             </div>
             <div class="order-1 md:order-2 bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-                <!-- Placeholder for project image/viz -->
-                <div class="aspect-video bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="ph ph-chart-line-up text-emerald-300 text-6xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Featured Project: Neural Force Fields</h3>
-                <p class="text-slate-500 text-sm">Developing potentials that rival DFT accuracy at a fraction of the computational cost.</p>
+                <img
+                    src="./figures/From Cream to Glass.png"
+                    alt="STEM figure"
+                    class="aspect-video w-full rounded-lg object-contain mb-4 bg-area-1/10"
+                />
+                <h3 class="text-xl font-semibold mb-2">Featured Project: <a href="https://www.pnas.org/doi/abs/10.1073/pnas.2307552120" class="text-area-1 underline hover:opacity-80"> StEP Model for Disordered Solids Ductility (PNAS 2023)</a></h3>
+                <p class="text-slate-500 text-sm">We propose the StEP model, the first universal theory to interpret the brittle-to-ductile transition in disordered solids. While previous theories are system-specific, StEP integrates machine-learned structural information to decode this transition across diverse glassy materials.</p>
             </div>
         </div>
+        <button
+            type="button"
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-400 hover:text-slate-500 transition-colors"
+            onclick="scrollToSection('science-ai')"
+            aria-label="Scroll to Science for AI section"
+        >
+            <i class="ph ph-arrow-down text-3xl"></i>
+        </button>
     </section>
 
     <!-- Section 2: Science for AI -->
-    <section id="science-ai" class="min-h-screen flex items-center py-20 px-6 bg-white">
+    <section id="science-ai" class="min-h-screen flex items-center py-20 px-6 bg-white relative">
         <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="bg-slate-50 p-8 rounded-2xl shadow-lg border border-slate-100">
-                <div class="aspect-video bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="ph ph-network text-indigo-300 text-6xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Featured Project: Physics-Informed NN</h3>
-                <p class="text-slate-500 text-sm">Embedding physical conservation laws directly into neural network loss functions.</p>
+                <img
+                    src="./figures/Grokking cover image.png"
+                    alt="NeurIPS 2025 poster"
+                    class="aspect-video w-full rounded-lg object-contain mb-4 bg-area-2/10"
+                />
+                <h3 class="text-xl font-semibold mb-2">Featured Project: <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/117824" class="text-area-2 underline hover:opacity-80">Is Grokking a Computational Glass Relaxation? (NeurIPS 2025 Spotlight)</a></h3>
+                <p class="text-slate-500 text-sm"> By framing grokking as a computational glass relaxation, this work explains grokking from the perspective of Boltzmann entropy and proposes a physics-based grokking-resistant optimizer.</p>
             </div>
             <div>
                 <div class="flex items-center gap-4 mb-6">
@@ -206,29 +247,37 @@
                     <h2 class="text-4xl font-bold text-slate-800">Science for AI</h2>
                 </div>
                 <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                    Applying principles from statistical physics and thermodynamics to understand and improve artificial intelligence. 
-                    We explore the theoretical limits of learning and the dynamics of optimization landscapes.
+                    Applying principles from science (like statistical physics) to help understand and improve artificial intelligence. 
+                    We explore the theoretical limits of AI learning and the dynamics of modern neural networks optimization landscapes.
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-start gap-3">
                         <i class="ph ph-check-circle text-area-2 text-xl mt-1"></i>
-                        <span class="text-slate-700">Thermodynamics of Learning</span>
+                        <span class="text-slate-700"><a href="https://arxiv.org/abs/2503.13145" class="text-area-2 underline hover:opacity-80">High-entropy Advantage in Neural Networks' Generalizability</a></span> 
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="ph ph-check-circle text-area-2 text-xl mt-1"></i>
-                        <span class="text-slate-700">Interpretability via Physical Analogies</span>
+                        <span class="text-slate-700"><a href="https://arxiv.org/abs/2505.11411" class="text-area-2 underline hover:opacity-80">Grokking as a Computational Glass Relaxation</a></span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="ph ph-check-circle text-area-2 text-xl mt-1"></i>
-                        <span class="text-slate-700">Bio-inspired Computing Architectures</span>
+                        <span class="text-slate-700"><a href="https://arxiv.org/abs/2505.11411" class="text-area-2 underline hover:opacity-80">WanD: an Optimizer Learning Beyond the Loss Gradient Descent</a></span>
                     </li>
                 </ul>
             </div>
         </div>
+        <button
+            type="button"
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-400 hover:text-slate-500 transition-colors"
+            onclick="scrollToSection('comp-materials')"
+            aria-label="Scroll to Computational Materials section"
+        >
+            <i class="ph ph-arrow-down text-3xl"></i>
+        </button>
     </section>
 
     <!-- Section 3: Computational Materials -->
-    <section id="comp-materials" class="min-h-screen flex items-center py-20 px-6 bg-slate-50 border-t border-slate-200">
+    <section id="comp-materials" class="min-h-screen flex items-center py-20 px-6 bg-slate-50 border-t border-slate-200 relative">
         <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1">
                 <div class="flex items-center gap-4 mb-6">
@@ -238,44 +287,55 @@
                     <h2 class="text-4xl font-bold text-slate-800">Computational Materials</h2>
                 </div>
                 <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                    Discovering novel materials through high-throughput computing and ab initio simulations. 
-                    Focus areas include battery electrolytes, semiconductors, and topological insulators.
+                    Discovering and investigating novel materials via high-throughput molecular dynamics simulations. 
+                    Focus areas include membrane, polymers composites, and disordered solids.
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-start gap-3">
                         <i class="ph ph-check-circle text-area-3 text-xl mt-1"></i>
-                        <span class="text-slate-700">High-Throughput Screening</span>
+                        <span class="text-slate-700"><a href="https://aiche.confex.com/aiche/2025/meetingapp.cgi/Paper/710669" class="text-area-3 underline hover:opacity-80">Gas Separation Membranes</a></span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="ph ph-check-circle text-area-3 text-xl mt-1"></i>
-                        <span class="text-slate-700">DFT & Molecular Dynamics</span>
+                        <span class="text-slate-700"><a href="https://pubs.rsc.org/en/content/articlelanding/2020/sm/d0sm00991a/unauth" class="text-area-3 underline hover:opacity-80">Polymer Nanocomposites (PNCs)</a></span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="ph ph-check-circle text-area-3 text-xl mt-1"></i>
-                        <span class="text-slate-700">Structure-Property Relationships</span>
+                        <span class="text-slate-700"><a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.4.043026" class="text-area-3 underline hover:opacity-80">Disordered Solids</a></span>
                     </li>
                 </ul>
             </div>
             <div class="order-1 md:order-2 bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-                <div class="aspect-video bg-gradient-to-br from-rose-50 to-rose-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="ph ph-cube text-rose-300 text-6xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Featured Project: Next-Gen Batteries</h3>
-                <p class="text-slate-500 text-sm">Identifying solid-state electrolytes with high ionic conductivity.</p>
+                <img
+                    src="./figures/PNC Bound Layer.png"
+                    alt="PNC bound layer"
+                    class="aspect-video w-full rounded-lg object-contain mb-4 bg-area-3/10"
+                />
+                <h3 class="text-xl font-semibold mb-2">Featured Project: <a href="https://www.proquest.com/openview/3c5d731bdb0f0e57deda5b6e5a9796fe/1?pq-origsite=gscholar&cbl=18750&diss=y" class="text-area-3 underline hover:opacity-80">Bound Layer Dynamics in PNCs</a></h3>
+                <p class="text-slate-500 text-sm">Use MD simulation with explicit / implicit solvent and first characterize the bound layer formation via the change of polymer density, coordination number, and entanglements among bound polymers. </p>
             </div>
         </div>
+        <button
+            type="button"
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-400 hover:text-slate-500 transition-colors"
+            onclick="scrollToSection('footer')"
+            aria-label="Scroll to footer"
+        >
+            <i class="ph ph-arrow-down text-3xl"></i>
+        </button>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12">
+    <footer id="footer" class="bg-slate-900 text-white py-12">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold mb-4">Let's Connect</h2>
+            <h2 class="text-2xl font-bold mb-4">Let's Connect!</h2>
             <div class="flex justify-center gap-6 mb-8">
-                <a href="#" class="hover:text-area-1 transition-colors"><i class="ph ph-github-logo text-3xl"></i></a>
-                <a href="#" class="hover:text-area-2 transition-colors"><i class="ph ph-linkedin-logo text-3xl"></i></a>
-                <a href="#" class="hover:text-area-3 transition-colors"><i class="ph ph-envelope text-3xl"></i></a>
+                <a href="https://github.com/entao1128" class="hover:text-area-1 transition-colors"><i class="ph ph-github-logo text-3xl"></i></a>
+                <a href="https://www.linkedin.com/in/entao-yang-a29238117" class="hover:text-area-2 transition-colors"><i class="ph ph-linkedin-logo text-3xl"></i></a>
+                <a href="mailto:entaoyang@alumni.upenn.edu" class="hover:text-area-3 transition-colors" aria-label="Email Entao Yang"><i class="ph ph-envelope text-3xl"></i></a>
+                <a href="https://scholar.google.com/citations?hl=en&user=RmfPKQkAAAAJ&view_op=list_works&sortby=pubdate" class="hover:text-area-4 transition-colors" aria-label="Google Scholar"><i class="ph ph-google-logo text-3xl"></i></a>
             </div>
-            <p class="text-slate-500 text-sm">&copy; 2025 Your Name. All rights reserved.</p>
+            <p class="text-slate-500 text-sm">&copy; 2025 Entao Yang. All rights reserved.</p>
         </div>
     </footer>
 
@@ -318,35 +378,43 @@
         const segments = [
             {
                 id: 'ai-science',
-                color: '#10B981', // Emerald
-                hoverColor: '#34D399',
+                color: '#00008B', // Darkblue
                 start: 210,
                 end: 330,
                 icon: 'ph-brain',
                 label: 'AI for Science',
-                cx: 0, cy: -25 // Offset for icon
+                cx: 15, cy: 12 // Offset for icon
             },
             {
                 id: 'science-ai',
-                color: '#6366F1', // Indigo
-                hoverColor: '#818CF8',
+                color: '#D75F28', // Orange
                 start: 330,
                 end: 450, // wraps to 90
                 icon: 'ph-circuitry',
                 label: 'Science for AI',
-                cx: 22, cy: 12 // Offset for icon
+                cx: 15, cy: 11 // Offset for icon
             },
             {
                 id: 'comp-materials',
-                color: '#F43F5E', // Rose
-                hoverColor: '#FB7185',
+                color: '#8B0000', // Darkred
                 start: 90,
                 end: 210,
                 icon: 'ph-atom',
                 label: 'Comp. Materials',
-                cx: -22, cy: 12 // Offset for icon
+                cx: 15, cy: 11 // Offset for icon
             }
         ];
+
+        function lightenColor(hex, amount) {
+            const clean = hex.replace('#', '');
+            const num = parseInt(clean, 16);
+            const r = (num >> 16) & 255;
+            const g = (num >> 8) & 255;
+            const b = num & 255;
+            const toLight = (value) => Math.round(value + (255 - value) * amount);
+            const toHex = (value) => value.toString(16).padStart(2, '0');
+            return `#${toHex(toLight(r))}${toHex(toLight(g))}${toHex(toLight(b))}`;
+        }
 
         // Replace the HTML static SVG with this generated one
         const svgContainer = document.querySelector('svg');
@@ -393,22 +461,31 @@
             path.setAttribute("stroke", "white");
             path.setAttribute("stroke-width", "1.5");
             // Add hover effect via class logic in CSS or inline
+            const hoverColor = lightenColor(seg.color, 0.18);
+            group.addEventListener("mouseenter", () => {
+                path.setAttribute("fill", hoverColor);
+            });
+            group.addEventListener("mouseleave", () => {
+                path.setAttribute("fill", seg.color);
+            });
             
             // Icon & Text positioning
             // Calculate center of the wedge angle
             const midAngle = (seg.start + seg.end) / 2;
             const textPos = polarToCartesian(center, center, 36.5, midAngle); // Middle of band
+            const offsetX = seg.cx || 0;
+            const offsetY = seg.cy || 0;
 
             const foreignObj = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
-            foreignObj.setAttribute("x", textPos.x - 15);
-            foreignObj.setAttribute("y", textPos.y - 12);
+            foreignObj.setAttribute("x", textPos.x - offsetX);
+            foreignObj.setAttribute("y", textPos.y - offsetY);
             foreignObj.setAttribute("width", "30");
             foreignObj.setAttribute("height", "30");
             foreignObj.style.pointerEvents = "none";
             
             foreignObj.innerHTML = `
                 <div class="flex flex-col items-center justify-center h-full text-white drop-shadow-md">
-                    <i class="ph ${seg.icon} text-3xl"></i>
+                    <i class="ph ${seg.icon} text-xl"></i>
                     <span class="text-[4px] font-bold uppercase tracking-wider mt-1 text-center leading-tight w-20">${seg.label}</span>
                 </div>
             `;
@@ -424,7 +501,7 @@
         function scrollToSection(id) {
             const el = document.getElementById(id);
             if (el) {
-                const headerOffset = 50;
+                const headerOffset = 0;
                 const elementPosition = el.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 window.scrollTo({
