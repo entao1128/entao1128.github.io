@@ -392,7 +392,7 @@
                 end: 450, // wraps to 90
                 icon: 'ph-circuitry',
                 label: 'Science for AI',
-                cx: 15, cy: 11 // Offset for icon
+                cx: 15, cy: 15 // Offset for icon
             },
             {
                 id: 'comp-materials',
@@ -401,7 +401,7 @@
                 end: 210,
                 icon: 'ph-atom',
                 label: 'Comp. Materials',
-                cx: 15, cy: 11 // Offset for icon
+                cx: 15, cy: 15 // Offset for icon
             }
         ];
 
@@ -484,9 +484,8 @@
             foreignObj.style.pointerEvents = "none";
             
             foreignObj.innerHTML = `
-                <div class="flex flex-col items-center justify-center h-full text-white drop-shadow-md">
+                <div class="flex items-center justify-center h-full text-white drop-shadow-md">
                     <i class="ph ${seg.icon} text-xl"></i>
-                    <span class="text-[4px] font-bold uppercase tracking-wider mt-1 text-center leading-tight w-20">${seg.label}</span>
                 </div>
             `;
 
