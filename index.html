@@ -40,6 +40,20 @@
             transform: scale(1.05);
             filter: brightness(1.1);
         }
+        .wheel-segment:hover .wheel-icon {
+            opacity: 0;
+        }
+        .wheel-label {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+            pointer-events: none;
+            paint-order: stroke fill;
+            stroke: #ffffff;
+            stroke-width: 0.8;
+        }
+        .wheel-segment:hover .wheel-label {
+            opacity: 1;
+        }
         /* Hide scrollbar for cleaner look */
         ::-webkit-scrollbar {
             width: 8px;
@@ -490,7 +504,7 @@
                 start: 90,
                 end: 210,
                 icon: 'ph-atom',
-                label: 'Comp. Materials',
+                label: 'Computational Materials',
                 cx: 15, cy: 15 // Offset for icon
             }
         ];
@@ -518,7 +532,9 @@
         segments.forEach(seg => {
             const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
             group.setAttribute("class", "wheel-segment group cursor-pointer");
-            group.onclick = () => scrollToSection(seg.id);
+            group.onclick = () => {
+                scrollToSection(seg.id);
+            };
 
             // Create Path
             // Donut shape: Outer arc -> line to inner -> inner arc -> line to start
@@ -554,11 +570,36 @@
             const hoverColor = lightenColor(seg.color, 0.18);
             group.addEventListener("mouseenter", () => {
                 path.setAttribute("fill", hoverColor);
+                svgContainer.appendChild(group);
             });
             group.addEventListener("mouseleave", () => {
                 path.setAttribute("fill", seg.color);
             });
-            
+
+            const labelPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            labelPath.setAttribute("id", `label-arc-${seg.id}`);
+            const labelRadius = (radiusOuter + radiusInner) / 2;
+            labelPath.setAttribute("d", describeArc(center, center, labelRadius, seg.start, seg.end));
+            labelPath.setAttribute("fill", "none");
+            defs.appendChild(labelPath);
+
+            const labelText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            labelText.setAttribute("class", "wheel-label");
+            labelText.setAttribute("fill", seg.color);
+            labelText.setAttribute("font-size", "4.5");
+            labelText.setAttribute("font-weight", "700");
+            labelText.setAttribute("text-anchor", "middle");
+            labelText.setAttribute("dominant-baseline", "middle");
+
+            const labelTextPath = document.createElementNS("http://www.w3.org/2000/svg", "textPath");
+            labelTextPath.setAttribute("href", `#label-arc-${seg.id}`);
+            labelTextPath.setAttribute("startOffset", "50%");
+            if (seg.id === "science-ai") {
+                labelTextPath.setAttribute("side", "right");
+            }
+            labelTextPath.textContent = seg.label;
+            labelText.appendChild(labelTextPath);
+
             // Icon & Text positioning
             // Calculate center of the wedge angle
             const midAngle = (seg.start + seg.end) / 2;
@@ -574,13 +615,14 @@
             foreignObj.style.pointerEvents = "none";
             
             foreignObj.innerHTML = `
-                <div class="flex items-center justify-center h-full text-white drop-shadow-md">
+                <div class="wheel-icon flex items-center justify-center h-full text-white drop-shadow-md transition-opacity">
                     <i class="ph ${seg.icon} text-xl"></i>
                 </div>
             `;
 
             group.appendChild(path);
             group.appendChild(foreignObj);
+            group.appendChild(labelText);
             svgContainer.appendChild(group);
         });
 
@@ -602,9 +644,3 @@
     </script>
 </body>
 </html>
-
-//---
-//layout: interactive_home
-//title: Entao Yang
-//subtitle: Exploring the Intersection of AI and Science
-//---
