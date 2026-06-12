@@ -33,12 +33,17 @@
         /* Custom animations for the wheel */
         .wheel-segment {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-box: fill-box;
             transform-origin: center;
             cursor: pointer;
+            outline: none;
         }
         .wheel-segment:hover {
             transform: scale(1.05);
             filter: brightness(1.1);
+        }
+        .wheel-segment:focus-visible path {
+            stroke-width: 2.5;
         }
         .wheel-segment:hover .wheel-icon {
             opacity: 0;
@@ -144,7 +149,7 @@
             </div>
 
             <!-- SVG Diagram -->
-            <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-2xl">
+            <svg id="research-wheel-svg" viewBox="0 0 100 100" class="w-full h-full drop-shadow-2xl" aria-label="Research directions">
                 <!-- Defs for gradients or filters can go here -->
                 
                 <!-- Segment 1: AI for Science (Top Leftish) -->
@@ -575,110 +580,122 @@
         }
 
         // Replace the HTML static SVG with this generated one
-        const svgContainer = document.querySelector('svg');
-        svgContainer.innerHTML = ''; // Clear static fallback
+        const svgContainer = document.getElementById('research-wheel-svg');
 
-        // Add Defs for shadows
-        const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-        defs.innerHTML = `<filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="1"/><feOffset dx="0" dy="1" result="offsetblur"/><feFlood flood-color="rgba(0,0,0,0.2)"/><feComposite in2="offsetblur" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
-        svgContainer.appendChild(defs);
+        if (svgContainer) {
+            svgContainer.innerHTML = ''; // Clear static fallback
 
-        segments.forEach(seg => {
-            const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-            group.setAttribute("class", "wheel-segment group cursor-pointer");
-            group.onclick = () => {
-                scrollToSection(seg.id);
-            };
+            // Add Defs for shadows
+            const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+            defs.innerHTML = `<filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="1"/><feOffset dx="0" dy="1" result="offsetblur"/><feFlood flood-color="rgba(0,0,0,0.2)"/><feComposite in2="offsetblur" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
+            svgContainer.appendChild(defs);
 
-            // Create Path
-            // Donut shape: Outer arc -> line to inner -> inner arc -> line to start
-            const radiusOuter = 48;
-            const radiusInner = 25;
-            const center = 50;
-            
-            // Outer Arc
-            const startOuter = polarToCartesian(center, center, radiusOuter, seg.end);
-            const endOuter = polarToCartesian(center, center, radiusOuter, seg.start);
-            
-            // Inner Arc
-            const startInner = polarToCartesian(center, center, radiusInner, seg.end);
-            const endInner = polarToCartesian(center, center, radiusInner, seg.start);
+            segments.forEach(seg => {
+                const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                group.setAttribute("class", "wheel-segment group cursor-pointer");
+                group.setAttribute("tabindex", "0");
+                group.setAttribute("role", "link");
+                group.setAttribute("aria-label", `Scroll to ${seg.label}`);
 
-            // Gap adjustment (simple version: standard arcs, gap created by stroke)
-            // Complex version: math offsets. We will rely on stroke for gaps.
-            
-            const d = [
-                "M", startOuter.x, startOuter.y,
-                "A", radiusOuter, radiusOuter, 0, 0, 0, endOuter.x, endOuter.y,
-                "L", endInner.x, endInner.y,
-                "A", radiusInner, radiusInner, 0, 0, 1, startInner.x, startInner.y,
-                "Z"
-            ].join(" ");
+                const activateSegment = () => {
+                    scrollToSection(seg.id);
+                };
+                group.addEventListener("click", activateSegment);
+                group.addEventListener("keydown", (event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        activateSegment();
+                    }
+                });
 
-            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-            path.setAttribute("d", d);
-            path.setAttribute("fill", seg.color);
-            path.setAttribute("stroke", "white");
-            path.setAttribute("stroke-width", "1.5");
-            // Add hover effect via class logic in CSS or inline
-            const hoverColor = lightenColor(seg.color, 0.18);
-            group.addEventListener("mouseenter", () => {
-                path.setAttribute("fill", hoverColor);
+                // Create Path
+                // Donut shape: Outer arc -> line to inner -> inner arc -> line to start
+                const radiusOuter = 48;
+                const radiusInner = 25;
+                const center = 50;
+
+                // Outer Arc
+                const startOuter = polarToCartesian(center, center, radiusOuter, seg.end);
+                const endOuter = polarToCartesian(center, center, radiusOuter, seg.start);
+
+                // Inner Arc
+                const startInner = polarToCartesian(center, center, radiusInner, seg.end);
+                const endInner = polarToCartesian(center, center, radiusInner, seg.start);
+
+                // Gap adjustment (simple version: standard arcs, gap created by stroke)
+                // Complex version: math offsets. We will rely on stroke for gaps.
+
+                const d = [
+                    "M", startOuter.x, startOuter.y,
+                    "A", radiusOuter, radiusOuter, 0, 0, 0, endOuter.x, endOuter.y,
+                    "L", endInner.x, endInner.y,
+                    "A", radiusInner, radiusInner, 0, 0, 1, startInner.x, startInner.y,
+                    "Z"
+                ].join(" ");
+
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", d);
+                path.setAttribute("fill", seg.color);
+                path.setAttribute("stroke", "white");
+                path.setAttribute("stroke-width", "1.5");
+                // Add hover effect via class logic in CSS or inline
+                const hoverColor = lightenColor(seg.color, 0.18);
+                group.addEventListener("mouseenter", () => {
+                    path.setAttribute("fill", hoverColor);
+                });
+                group.addEventListener("mouseleave", () => {
+                    path.setAttribute("fill", seg.color);
+                });
+
+                const labelPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                labelPath.setAttribute("id", `label-arc-${seg.id}`);
+                const labelRadius = (radiusOuter + radiusInner) / 2;
+                const labelStart = seg.id === "science-ai" ? seg.end : seg.start;
+                const labelEnd = seg.id === "science-ai" ? seg.start : seg.end;
+                labelPath.setAttribute("d", describeArc(center, center, labelRadius, labelStart, labelEnd));
+                labelPath.setAttribute("fill", "none");
+                defs.appendChild(labelPath);
+
+                const labelText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                labelText.setAttribute("class", "wheel-label");
+                labelText.setAttribute("fill", seg.color);
+                labelText.setAttribute("font-size", "4.5");
+                labelText.setAttribute("font-weight", "700");
+                labelText.setAttribute("text-anchor", "middle");
+                labelText.setAttribute("dominant-baseline", "middle");
+
+                const labelTextPath = document.createElementNS("http://www.w3.org/2000/svg", "textPath");
+                labelTextPath.setAttribute("href", `#label-arc-${seg.id}`);
+                labelTextPath.setAttribute("startOffset", "50%");
+                labelTextPath.textContent = seg.label;
+                labelText.appendChild(labelTextPath);
+
+                // Icon & Text positioning
+                // Calculate center of the wedge angle
+                const midAngle = (seg.start + seg.end) / 2;
+                const textPos = polarToCartesian(center, center, 36.5, midAngle); // Middle of band
+                const offsetX = seg.cx || 0;
+                const offsetY = seg.cy || 0;
+
+                const foreignObj = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+                foreignObj.setAttribute("x", textPos.x - offsetX);
+                foreignObj.setAttribute("y", textPos.y - offsetY);
+                foreignObj.setAttribute("width", "30");
+                foreignObj.setAttribute("height", "30");
+                foreignObj.style.pointerEvents = "none";
+
+                foreignObj.innerHTML = `
+                    <div class="wheel-icon flex items-center justify-center h-full text-white drop-shadow-md transition-opacity">
+                        <i class="ph ${seg.icon} text-xl"></i>
+                    </div>
+                `;
+
+                group.appendChild(path);
+                group.appendChild(foreignObj);
+                group.appendChild(labelText);
                 svgContainer.appendChild(group);
             });
-            group.addEventListener("mouseleave", () => {
-                path.setAttribute("fill", seg.color);
-            });
-
-            const labelPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-            labelPath.setAttribute("id", `label-arc-${seg.id}`);
-            const labelRadius = (radiusOuter + radiusInner) / 2;
-            labelPath.setAttribute("d", describeArc(center, center, labelRadius, seg.start, seg.end));
-            labelPath.setAttribute("fill", "none");
-            defs.appendChild(labelPath);
-
-            const labelText = document.createElementNS("http://www.w3.org/2000/svg", "text");
-            labelText.setAttribute("class", "wheel-label");
-            labelText.setAttribute("fill", seg.color);
-            labelText.setAttribute("font-size", "4.5");
-            labelText.setAttribute("font-weight", "700");
-            labelText.setAttribute("text-anchor", "middle");
-            labelText.setAttribute("dominant-baseline", "middle");
-
-            const labelTextPath = document.createElementNS("http://www.w3.org/2000/svg", "textPath");
-            labelTextPath.setAttribute("href", `#label-arc-${seg.id}`);
-            labelTextPath.setAttribute("startOffset", "50%");
-            if (seg.id === "science-ai") {
-                labelTextPath.setAttribute("side", "right");
-            }
-            labelTextPath.textContent = seg.label;
-            labelText.appendChild(labelTextPath);
-
-            // Icon & Text positioning
-            // Calculate center of the wedge angle
-            const midAngle = (seg.start + seg.end) / 2;
-            const textPos = polarToCartesian(center, center, 36.5, midAngle); // Middle of band
-            const offsetX = seg.cx || 0;
-            const offsetY = seg.cy || 0;
-
-            const foreignObj = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
-            foreignObj.setAttribute("x", textPos.x - offsetX);
-            foreignObj.setAttribute("y", textPos.y - offsetY);
-            foreignObj.setAttribute("width", "30");
-            foreignObj.setAttribute("height", "30");
-            foreignObj.style.pointerEvents = "none";
-            
-            foreignObj.innerHTML = `
-                <div class="wheel-icon flex items-center justify-center h-full text-white drop-shadow-md transition-opacity">
-                    <i class="ph ${seg.icon} text-xl"></i>
-                </div>
-            `;
-
-            group.appendChild(path);
-            group.appendChild(foreignObj);
-            group.appendChild(labelText);
-            svgContainer.appendChild(group);
-        });
+        }
 
         // Add Center Hole (Background) - optional if we want the wheel to look solid around the HTML center div
         // but the HTML center div handles it.
