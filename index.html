@@ -650,9 +650,7 @@
                 const labelPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
                 labelPath.setAttribute("id", `label-arc-${seg.id}`);
                 const labelRadius = (radiusOuter + radiusInner) / 2;
-                const labelStart = seg.id === "science-ai" ? seg.end : seg.start;
-                const labelEnd = seg.id === "science-ai" ? seg.start : seg.end;
-                labelPath.setAttribute("d", describeArc(center, center, labelRadius, labelStart, labelEnd));
+                labelPath.setAttribute("d", describeArc(center, center, labelRadius, seg.start, seg.end));
                 labelPath.setAttribute("fill", "none");
                 defs.appendChild(labelPath);
 
@@ -667,6 +665,9 @@
                 const labelTextPath = document.createElementNS("http://www.w3.org/2000/svg", "textPath");
                 labelTextPath.setAttribute("href", `#label-arc-${seg.id}`);
                 labelTextPath.setAttribute("startOffset", "50%");
+                if (seg.id === "science-ai") {
+                    labelTextPath.setAttribute("side", "right");
+                }
                 labelTextPath.textContent = seg.label;
                 labelText.appendChild(labelTextPath);
 
